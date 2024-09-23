@@ -14,21 +14,26 @@ datasource db {
 }
 
 model AllUser {
-  id       String    @id @default(auto()) @map("_id") @db.ObjectId
-  email    String  @unique
-  name   String
-  city    String
-  author   String
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  email        String   @unique
+  name         String
+  city         String
+  author       String
   authorNumber String   
-  comments String
+  comments     String
 }
-model empolyedetails {
+
+model EmployeeDetails {
   id           String   @id @default(auto()) @map("_id") @db.ObjectId
   name         String   
-  authorNumber String  @unique
+  authorNumber String   @unique
   city         String  
   author       String
   comments     String 
-  } 
+  startingDate DateTime
+  endDate      DateTime
+}
+
+
 
 

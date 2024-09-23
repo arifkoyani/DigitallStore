@@ -1,5 +1,6 @@
-"use client"
+"use client";
 import { useState } from "react";
+
 export default function UserForm() {
   const [formData, setFormData] = useState({
     name: "",
@@ -7,7 +8,22 @@ export default function UserForm() {
     city: "",
     author: "",
     comments: "",
+    startingDate: "", 
+    endDate: "",      
   });
+
+  // Function to reset the form
+  const resetForm = () => {
+    setFormData({
+      name: "",
+      authorNumber: "",
+      city: "",
+      author: "",
+      comments: "",
+      startingDate: "",
+      endDate: "",
+    });
+  };
 
   const handleChange = (e) => {
     setFormData({
@@ -27,10 +43,17 @@ export default function UserForm() {
         },
         body: JSON.stringify(formData),
       });
+      
+      const {message,code}= await response.json();
+      if (code=="111") {
+        alert("User is already exist");
+      }
+    else if(code=="222"){
+          alert("user is created ")
+        resetForm();
 
-      if (response.ok) {
-        alert("User created successfully!");
-      } else {
+      }
+      else {
         alert("Error creating user!");
       }
     } catch (error) {
@@ -104,6 +127,32 @@ export default function UserForm() {
             rows="4"
             required
           ></textarea>
+        </div>
+
+        {/* Starting Date */}
+        <div className="mb-4">
+          <label className="block text-sm font-medium mb-1">Starting Date</label>
+          <input
+            type="date"
+            name="startingDate"
+            value={formData.startingDate}
+            onChange={handleChange}
+            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+            required
+          />
+        </div>
+
+        {/* End Date */}
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-700 mb-1">End Date</label>
+          <input
+            type="date"
+            name="endDate"
+            value={formData.endDate}
+            onChange={handleChange}
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            required
+          />
         </div>
 
         {/* Submit Button */}

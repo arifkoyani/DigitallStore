@@ -14,10 +14,11 @@ export async function POST(req) {
 
     if (userExist) {
       return NextResponse.json(
-        { message: "user is exist allready" },
-        { status: 201 }
+        { message: "User already exists" },
+        { status: 409 }
       );
-    } else {
+    }
+     else {
       await prisma.AllUser.create({
         data: {
           email,
