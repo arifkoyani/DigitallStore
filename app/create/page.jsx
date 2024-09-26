@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Cookies from "js-cookie"; 
+import Link from "next/link";
 // Import js-cookie for managing cookies
 
 export default function UserForm() {
@@ -141,6 +142,13 @@ export default function UserForm() {
           </button>
         </div>
       </form>
+      <Link href="/create/empolyedetails">
+      <h1 className="m-2">
+      GO to Emp
+
+      </h1>
+      
+      </Link>
     </div>
   );
 }

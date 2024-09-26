@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-
+import Link from "next/link";
 export default function UserForm() {
   const [formData, setFormData] = useState({
     name: "",
@@ -164,6 +164,14 @@ export default function UserForm() {
           </button>
         </div>
       </form>
+
+      <Link href="/create/empolyedetails">
+      <h1 className="m-2">
+      GO to create
+
+      </h1>
+      
+      </Link>
     </div>
   );
 }
