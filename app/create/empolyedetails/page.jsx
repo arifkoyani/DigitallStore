@@ -51,7 +51,6 @@ export default function UserForm() {
     else if(code=="222"){
           alert("user is created ")
         resetForm();
-
       }
       else {
         alert("Error creating user!");

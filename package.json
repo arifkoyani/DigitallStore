@@ -11,6 +11,9 @@
   "dependencies": {
     "@nextui-org/date-picker": "^2.1.8",
     "@prisma/client": "^5.19.1",
+    "dotenv": "^16.4.5",
+    "js-cookie": "^3.0.5",
+    "jsonwebtoken": "^9.0.2",
     "next": "14.2.13",
     "react": "^18",
     "react-dom": "^18"

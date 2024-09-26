@@ -1,5 +1,7 @@
-"use client"
+"use client";
 import { useState } from "react";
+import Cookies from "js-cookie"; // Import js-cookie for managing cookies
+
 export default function UserForm() {
   const [formData, setFormData] = useState({
     email: "",
@@ -32,6 +34,11 @@ export default function UserForm() {
       });
 
       if (response.ok) {
+        const { token } = await response.json();
+
+        // Set token in cookies with 1-hour expiry
+        Cookies.set("jwt_token", token, { expires: 1 });
+
         alert("User created successfully!");
       } else {
         alert("Error creating user!");
