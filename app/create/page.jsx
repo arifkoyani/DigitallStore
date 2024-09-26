@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
-import Cookies from "js-cookie"; // Import js-cookie for managing cookies
+import Cookies from "js-cookie"; 
+// Import js-cookie for managing cookies
 
 export default function UserForm() {
   const [formData, setFormData] = useState({
@@ -13,7 +14,7 @@ export default function UserForm() {
   });
 
   // Handle form input changes
-  
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
