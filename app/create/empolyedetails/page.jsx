@@ -44,7 +44,7 @@ export default function UserForm() {
         body: JSON.stringify(formData),
       });
       
-      const {message,code}= await response.json();
+      const {code}= await response.json();
       if (code=="111") {
         alert("User is already exist");
       }
