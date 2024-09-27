@@ -8,8 +8,8 @@ export default function UserForm() {
     city: "",
     author: "",
     comments: "",
-    startingDate: "", 
-    endDate: "",      
+    startingDate: "",
+    endDate: "",
   });
 
   // Function to reset the form
@@ -43,16 +43,14 @@ export default function UserForm() {
         },
         body: JSON.stringify(formData),
       });
-      
-      const {code}= await response.json();
-      if (code=="111") {
+
+      const { code } = await response.json();
+      if (code == "111") {
         alert("User is already exist");
-      }
-    else if(code=="222"){
-          alert("user is created ")
+      } else if (code == "222") {
+        alert("user is created ");
         resetForm();
-      }
-      else {
+      } else {
         alert("Error creating user!");
       }
     } catch (error) {
@@ -78,7 +76,9 @@ export default function UserForm() {
 
         {/* Author Number */}
         <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Author Number</label>
+          <label className="block text-sm font-medium mb-1">
+            Author Number
+          </label>
           <input
             type="text"
             name="authorNumber"
@@ -130,7 +130,9 @@ export default function UserForm() {
 
         {/* Starting Date */}
         <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Starting Date</label>
+          <label className="block text-sm font-medium mb-1">
+            Starting Date
+          </label>
           <input
             type="date"
             name="startingDate"
@@ -143,7 +145,9 @@ export default function UserForm() {
 
         {/* End Date */}
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700 mb-1">End Date</label>
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            End Date
+          </label>
           <input
             type="date"
             name="endDate"
@@ -165,12 +169,8 @@ export default function UserForm() {
         </div>
       </form>
 
-      <Link href="/create/empolyedetails">
-      <h1 className="m-2">
-      GO to create
-
-      </h1>
-      
+      <Link href="/">
+        <h1 className="m-2">GO to create</h1>
       </Link>
     </div>
   );
