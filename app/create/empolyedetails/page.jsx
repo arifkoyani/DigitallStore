@@ -3,11 +3,6 @@ import { useState } from "react";
 import Link from "next/link";
 export default function UserForm() {
   const [formData, setFormData] = useState({
-    name: "",
-    authorNumber: "",
-    city: "",
-    author: "",
-    comments: "",
     startingDate: "",
     endDate: "",
   });
@@ -15,11 +10,6 @@ export default function UserForm() {
   // Function to reset the form
   const resetForm = () => {
     setFormData({
-      name: "",
-      authorNumber: "",
-      city: "",
-      author: "",
-      comments: "",
       startingDate: "",
       endDate: "",
     });
@@ -34,100 +24,12 @@ export default function UserForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    try {
-      const response = await fetch("/api/empolydetails", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const { code } = await response.json();
-      if (code == "111") {
-        alert("User is already exist");
-      } else if (code == "222") {
-        alert("user is created ");
-        resetForm();
-      } else {
-        alert("Error creating user!");
-      }
-    } catch (error) {
-      console.error("Failed to submit form:", error);
-    }
+    alert("done")
   };
 
   return (
     <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
       <form onSubmit={handleSubmit}>
-        {/* Name */}
-        <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Name</label>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
-            required
-          />
-        </div>
-
-        {/* Author Number */}
-        <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">
-            Author Number
-          </label>
-          <input
-            type="text"
-            name="authorNumber"
-            value={formData.authorNumber}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
-            required
-          />
-        </div>
-
-        {/* City */}
-        <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">City</label>
-          <input
-            type="text"
-            name="city"
-            value={formData.city}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
-            required
-          />
-        </div>
-
-        {/* Author */}
-        <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Author</label>
-          <input
-            type="text"
-            name="author"
-            value={formData.author}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
-            required
-          />
-        </div>
-
-        {/* Comments */}
-        <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Comments</label>
-          <textarea
-            name="comments"
-            value={formData.comments}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
-            rows="4"
-            required
-          ></textarea>
-        </div>
-
         {/* Starting Date */}
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">
