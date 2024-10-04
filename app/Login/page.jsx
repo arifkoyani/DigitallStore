@@ -93,12 +93,13 @@ if (respo.ok) {
           </div>
         </form>
         <div className="mt-6 text-center">
-          <p className="text-sm text-gray-600">
-            Don't have an account?{' '}
-            <a href="#" className="font-medium text-purple-600 hover:text-purple-500">
-              Sign up
-            </a>
-          </p>
+        <p className="text-sm text-gray-600">
+  Don&apos;t have an account?{' '}
+  <a href="#" className="font-medium text-purple-600 hover:text-purple-500">
+    Sign up
+  </a>
+</p>
+
         </div>
       </div>
     </div>

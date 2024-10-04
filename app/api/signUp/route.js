@@ -1,11 +1,11 @@
 import { PrismaClient } from "@prisma/client";
-import { NextResponse } from "next/server";
+import { NextResponse } from "next/server.js";
 
 const prisma = new PrismaClient();
 
 export async function POST(req) {
   const body = await req.json();
-  const { firstName, lastName, email, password, rePassword, dob, phone, country } = body;
+  const { firstName, lastName, email, password, dob, phone, country } = body;
 
   console.log(firstName, lastName, email, password, dob, phone, country);
 
